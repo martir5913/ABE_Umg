@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView lblResultado;
+    TextView lblResultado,txtOrden;
     EditText txtIngreso;
     Button btnvalidar;
     @Override
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         });
         txtIngreso = (EditText) findViewById(R.id.txtIngreso);
         lblResultado = (TextView) findViewById(R.id.lblResultado);
+        txtOrden = (TextView) findViewById(R.id.txtOrden);
         btnvalidar = (Button) findViewById(R.id.btnValidar);
 
         btnvalidar.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 ArbolBinario ABE = new ArbolBinario(Cadena);
 
                 lblResultado.setText(""+ABE.EvaluaExpresion());
+                txtOrden.setText(ABE.toString(1));
             }
         });
 
