@@ -19,10 +19,10 @@ public class Lienzo  extends View {
         super(context, attrs);
     }
     private ArbolBinario Arbol;
+    public static final int DIAMETRO = 200;
+    public static final int RADIO = DIAMETRO / 2;
+    public static final int ANCHO = 230;
 
-    public static final int DIAMETRO = 400;
-    public static final int RADIO = DIAMETRO / 10;
-    public static final int ANCHO = 400;
 
     public void setArbol(ArbolBinario arbol)
     {
@@ -30,46 +30,51 @@ public class Lienzo  extends View {
 
         //repaint();
     }
+
     @Override
     public void onDraw(Canvas canvas){
         super.onDraw(canvas);
+        int ancho = canvas.getWidth();
+        int alto = canvas.getHeight();
         Paint paint = new Paint();
-        ABE = new ArbolBinario("3+3");
+        ABE = new ArbolBinario("(6*8)/9");
+
         setArbol(ABE);
 //        paint.setStrokeWidth(10);
 //        paint.setARGB(255,255,0,0);
 //        canvas.drawLine(100,100,600,800,paint);
 //        paint.setARGB(255,255,128,0);
 //        canvas.drawCircle(600,600,500,paint);
-        pintar(canvas,getWidth()/2,100,Arbol.Raiz);
+        pintar(canvas,30,60,Arbol.Raiz);
     }
     public void pintar(Canvas g, int x,int y, NodoArbol subArbol)
     {
-
+        Paint.FontMetrics fm = new Paint.FontMetrics();
         Paint mTxtPaint = new Paint();
         Paint paint = new Paint();
         if (subArbol!=null)
         {
             int EXTRA = Arbol.NodosCompletos(subArbol)*ANCHO/2;
             paint.setARGB(255,0,0,0);
-            //mTxtPaint.setColor(Color.P);
-            mTxtPaint.setColor(Color.GREEN);
-            mTxtPaint.setTextSize(20);
-            g.drawText(subArbol.Dato.toString(), x+420, y+480,mTxtPaint);
-            //g.drawOval(x, y, DIAMETRO, ANCHO,paint);
+            mTxtPaint.setColor(Color.RED);
+            mTxtPaint.setTextSize(50);
+            mTxtPaint.getFontMetrics(fm);
+            //g.drawOval(x+800, y-400, DIAMETRO, ANCHO,paint);
+            g.drawText(subArbol.Dato.toString(), x+400+fm.top, y+800+fm.bottom,mTxtPaint);
+
 
             //https://azzits.wordpress.com/tag/android-drawtext-with-background-color/
 
             if (subArbol.Izquierdo != null)
             {
-                g.drawLine(x, y + RADIO, x + RADIO - ANCHO - EXTRA, y + ANCHO,paint);
+                g.drawLine(x+350, y +800, x+650 - ANCHO - EXTRA, y+700 + ANCHO,paint);
             }
             if (subArbol.Derecho != null)
             {
-                g.drawLine(x + DIAMETRO, y + RADIO, x + RADIO + ANCHO + EXTRA, y + ANCHO,paint);
+                g.drawLine(x+355 , y +800, x+55  + ANCHO + EXTRA, y+700 + ANCHO,paint);
             }
-            pintar(g, x - ANCHO - EXTRA, y + ANCHO, subArbol.Izquierdo);
-            pintar(g, x + ANCHO + EXTRA, y + ANCHO, subArbol.Derecho);
+            pintar(g, x+400 - ANCHO - EXTRA, y-80 + ANCHO, subArbol.Izquierdo);
+            pintar(g, x-400 + ANCHO + EXTRA, y-80 + ANCHO, subArbol.Derecho);
         }
     }
 
