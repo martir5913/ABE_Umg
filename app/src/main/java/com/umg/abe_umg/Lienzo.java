@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 
 public class Lienzo  extends View {
     ArbolBinario ABE;
+    boolean flag= true;
     public Lienzo(Context context) {
         super(context);
     }
@@ -33,12 +34,15 @@ public class Lienzo  extends View {
 
     @Override
     public void onDraw(Canvas canvas){
-        super.onDraw(canvas);
-        int ancho = canvas.getWidth();
-        int alto = canvas.getHeight();
-        Paint paint = new Paint();
-        ABE = new ArbolBinario("(6*8)/9");
 
+        if(flag) {
+            super.onDraw(canvas);
+            int ancho = canvas.getWidth();
+            int alto = canvas.getHeight();
+            Paint paint = new Paint();
+            ABE = new ArbolBinario("1+1");
+            flag = false;
+        }
         setArbol(ABE);
 //        paint.setStrokeWidth(10);
 //        paint.setARGB(255,255,0,0);
