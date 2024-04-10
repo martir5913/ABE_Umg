@@ -1,9 +1,10 @@
 package com.umg.abe_umg;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.os.Bundle;
+import android.text.style.UpdateLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,11 +12,9 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText et1;
     ArbolBinario ABE = new ArbolBinario();
     TextView lblResultado,txtOrden;
     EditText txtIngreso;
@@ -33,11 +32,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+
         txtIngreso = (EditText) findViewById(R.id.txtIngreso);
         lblResultado = (TextView) findViewById(R.id.lblResultado);
         txtOrden = (TextView) findViewById(R.id.txtOrden);
@@ -45,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btnDibujar = (Button) findViewById(R.id.btnDibujar);
 
         btnvalidar.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Context context = getApplicationContext();
@@ -64,7 +61,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Context context = getApplicationContext();
                 Lienzo miLienzo = new Lienzo(context);
+                Intent i = new Intent(v.getContext(), Arbol.class);
+                startActivity(i);
                 miLienzo.setArbol(ABE);
+
             }
         });
     }
