@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(v.getContext(), Arbol.class);
                 startActivity(i);
                 miLienzo.setArbol(ABE);
-
             }
         });
     }
