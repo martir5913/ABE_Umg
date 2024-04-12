@@ -46,12 +46,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Context context = getApplicationContext();
                 Canvas canvas = new Canvas();
-                Lienzo miLienzo = new Lienzo(context);
                 String Cadena = txtIngreso.getText().toString();
                 ABE = new ArbolBinario(Cadena);
-
                 lblResultado.setText(""+ABE.EvaluaExpresion());
-                //pintar(canvas,30,60,ABE.Raiz);
+
                 txtOrden.setText(ABE.toString(1));
             }
         });
@@ -59,11 +57,12 @@ public class MainActivity extends AppCompatActivity {
         btnDibujar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Context context = getApplicationContext();
-                Lienzo miLienzo = new Lienzo(context);
+                String Cadena = txtIngreso.getText().toString();
+
+                //Traslado de informacion al segundo Activity
                 Intent i = new Intent(v.getContext(), Arbol.class);
+                i.putExtra("cadena",Cadena);
                 startActivity(i);
-                miLienzo.setArbol(ABE);
             }
         });
     }

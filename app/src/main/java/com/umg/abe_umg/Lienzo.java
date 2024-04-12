@@ -40,10 +40,10 @@ public class Lienzo  extends View {
             int ancho = canvas.getWidth();
             int alto = canvas.getHeight();
             Paint paint = new Paint();
-            ABE = new ArbolBinario("1+1");
+            //ABE = new ArbolBinario("1+1");
             flag = false;
         }
-        setArbol(ABE);
+        //setArbol(ABE);
 //        paint.setStrokeWidth(10);
 //        paint.setARGB(255,255,0,0);
 //        canvas.drawLine(100,100,600,800,paint);
