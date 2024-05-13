@@ -44,10 +44,10 @@
         android:text="Evaluar"
         app:layout_constraintBottom_toTopOf="@+id/lblResultado"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintHorizontal_bias="0.287"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.727" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/txtIngreso"
@@ -57,23 +57,50 @@
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/btnValidar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.865"
+        app:layout_constraintVertical_bias="0.868"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/txtOrden"
-        android:layout_width="203dp"
-        android:layout_height="282dp"
+        android:id="@+id/txtPreOrden"
+        android:layout_width="125dp"
+        android:layout_height="225dp"
         android:autoText="true"
-        android:text="TextView"
+        android:text="PreOrden"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
+        app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.769" />
+        app:layout_constraintVertical_bias="0.899" />
+
+    <TextView
+        android:id="@+id/txtInOrden"
+        android:layout_width="118dp"
+        android:layout_height="220dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="112dp"
+        android:text="InOrden"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtPreOrden"
+        app:layout_constraintTop_toBottomOf="@+id/lblResultado"
+        app:layout_constraintVertical_bias="0.328" />
+
+    <TextView
+        android:id="@+id/txtPosOrden"
+        android:layout_width="115dp"
+        android:layout_height="226dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="40dp"
+        android:text="PosOrden"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtInOrden"
+        app:layout_constraintTop_toBottomOf="@+id/lblResultado"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnDibujar"
@@ -83,9 +110,9 @@
         android:text="Dibujar"
         app:layout_constraintBottom_toTopOf="@+id/lblResultado"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.255"
         app:layout_constraintStart_toEndOf="@+id/btnValidar"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.727" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
