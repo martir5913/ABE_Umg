@@ -60,7 +60,7 @@ public class ArbolBinario
         Cadena = "";
         if (subArbol !=null) 
         {
-            Cadena = c + subArbol.Dato.toString()+"\n"+PreOrden(subArbol.Izquierdo, c)+PreOrden(subArbol.Derecho, c);
+            Cadena = c + subArbol.Dato.toString()+PreOrden(subArbol.Izquierdo, c)+PreOrden(subArbol.Derecho, c);
         }
         return Cadena;
     }
@@ -71,7 +71,7 @@ public class ArbolBinario
         Cadena = "";
         if (subArbol !=null) 
         {
-            Cadena = c + InOrden(subArbol.Izquierdo, c) + subArbol.Dato.toString()+"\n"+InOrden(subArbol.Derecho, c);
+            Cadena = c + InOrden(subArbol.Izquierdo, c) + subArbol.Dato.toString()+InOrden(subArbol.Derecho, c);
         }
         return Cadena;
     }
@@ -82,7 +82,7 @@ public class ArbolBinario
         Cadena = "";
         if (subArbol !=null) 
         {
-            Cadena = c + PosOrden(subArbol.Izquierdo, c) + PosOrden(subArbol.Derecho, c)+subArbol.Dato.toString()+"\n";
+            Cadena = c + PosOrden(subArbol.Izquierdo, c) + PosOrden(subArbol.Derecho, c)+subArbol.Dato.toString();
         }
         return Cadena;
     }
