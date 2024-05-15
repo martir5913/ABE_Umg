@@ -11,6 +11,9 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class MainActivity extends AppCompatActivity
 {
     ArbolBinario ABE = new ArbolBinario();
@@ -45,13 +48,60 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 String Cadena = txtIngreso.getText().toString();
-                ABE = new ArbolBinario(Cadena);
-                lblResultado.setText(""+ABE.EvaluaExpresion());
+                // Verificar si la entrada contiene caracteres no permitidos
+                boolean entradaValida = true;
+                for (char c : Cadena.toCharArray()) {
+                    if (!Character.isDigit(c) && !esOperadorMatematico(c) && !esParentesis(c))
+                    {
+                        entradaValida = false;
+                        break;
+                    }
+                }
+
+                if (entradaValida)
+                {
+                    // Se valida la cadena si comienza con alguno de los operadores
+                    Pattern pattern = Pattern.compile("^[\\+\\-\\*\\/^].*");
+                    Matcher matcher = pattern.matcher(Cadena);
+
+                    // Se verifica si cumple o no
+                    if (matcher.find())
+                    {
+                        lblResultado.setText("No se puede iniciar con un operador");
+                    }
+                    else
+                    {
+                        // Validar si la expresion contiene el caracter no divicible
+                        if (Cadena.contains("/0"))
+                        {
+                            lblResultado.setText("No se puede dividir ente 0");
+                        }
+                        else
+                        {
+                            ABE = new ArbolBinario(Cadena);
+                            lblResultado.setText("" + ABE.EvaluaExpresion());
+                        }
+                    }
+                }
+                else
+                {
+                    lblResultado.setText("Expresion Invalida");
+                }
 
                 //Llenado de los TextBox en el xml con los ordenes del arbol
                 txtPreOrden.setText(String.format("Preorden: %s", ABE.toString(0)));
                 txtInOrden.setText(String.format("Inorden: %s", ABE.toString(1)));
                 txtPosOrden.setText(String.format("Postorden: %s", ABE.toString(2)));
+            }
+            // Metodo para verificar si un caracter es un operador matematico
+            private boolean esOperadorMatematico(char c)
+            {
+                return c == '+' || c == '-' || c == '*' || c == '/' || c == '^';
+            }
+            // Metodo para verificar si un caracter es un parentesis
+            private boolean esParentesis(char c)
+            {
+                return c == '(' || c == ')';
             }
         });
 

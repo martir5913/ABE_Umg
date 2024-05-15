@@ -1,6 +1,8 @@
 package com.umg.abe_umg;
 
-public class ArbolBinario 
+import android.widget.Toast;
+
+public class ArbolBinario
 {
     NodoArbol Raiz;
     
@@ -239,8 +241,7 @@ public class ArbolBinario
         }
         else
         {
-            switch (subArbol.Dato.toString().charAt(0))
-            {
+            switch (subArbol.Dato.toString().charAt(0)) {
                 case '^':
                     acum = acum + Math.pow(Evalua(subArbol.Izquierdo), Evalua(subArbol.Derecho));
                     break;
@@ -250,7 +251,7 @@ public class ArbolBinario
                 case '/':
                     //Generar in if para validar que no sea 0
                     acum = acum + Evalua(subArbol.Izquierdo) / Evalua(subArbol.Derecho);
-                    break;   
+                    break;
                 case '+':
                     acum = acum + Evalua(subArbol.Izquierdo) + Evalua(subArbol.Derecho);
                     break;    
