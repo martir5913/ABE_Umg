@@ -89,9 +89,9 @@ public class MainActivity extends AppCompatActivity
                 }
 
                 //Llenado de los TextBox en el xml con los ordenes del arbol
-                txtPreOrden.setText(String.format("Preorden: %s", ABE.toString(0)));
-                txtInOrden.setText(String.format("Inorden: %s", ABE.toString(1)));
-                txtPosOrden.setText(String.format("Postorden: %s", ABE.toString(2)));
+                txtPreOrden.setText(String.format("PREORDEN: %s", ABE.toString(0)));
+                txtInOrden.setText(String.format("INORDEN: %s", ABE.toString(1)));
+                txtPosOrden.setText(String.format("POSTORDEN: %s", ABE.toString(2)));
             }
             // Metodo para verificar si un caracter es un operador matematico
             private boolean esOperadorMatematico(char c)

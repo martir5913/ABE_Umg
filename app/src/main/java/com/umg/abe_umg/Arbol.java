@@ -61,10 +61,10 @@ public class Arbol extends AppCompatActivity
             nodoPaint = new Paint();
             nodoPaint.setTextSize(40); // Ajusta el tamaño del texto
             nodoPaint.setStyle(Paint.Style.FILL);
-            nodoPaint.setColor(Color.rgb( 39, 237, 231 )); // Cambia el color del texto a blanco
+            nodoPaint.setColor(Color.rgb( 60, 63, 64  )); // Cambia el color del Circulo
             //Otros atributos de inicialización
             linePaint = new Paint();
-            linePaint.setColor(Color.rgb( 176, 58, 243 ));
+            linePaint.setColor(Color.rgb( 60, 63, 64 )); //Cambia el color de la línea
             linePaint.setStrokeWidth(3);
         }
         protected void onDraw(Canvas canvas)
@@ -87,7 +87,7 @@ public class Arbol extends AppCompatActivity
             String text = String.valueOf(nodo.Dato);
             Rect bounds = new Rect(); //Se crea un objeto de tipo Rect que puede calcular las dimensiones de un rectangulo
 
-            nodoPaint.setColor(Color.RED); // Cambia el color del texto a blanco
+            nodoPaint.setColor(Color.WHITE); // Cambia el color del texto a blanco
             nodoPaint.getTextBounds(text, 0, text.length(), bounds);//Con el objeto bounds obtenemos las dimensiones del texto para acomodarlo en el dibujado del circulo
             canvas.drawText(text, x - bounds.exactCenterX(), y - bounds.exactCenterY(), nodoPaint);
             init();
