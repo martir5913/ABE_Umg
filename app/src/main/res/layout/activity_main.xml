@@ -39,9 +39,13 @@
         android:layout_height="56dp"
         android:layout_marginTop="336dp"
         android:layout_marginBottom="12dp"
+        android:drawableStart="@drawable/baseline_edit"
+        android:drawablePadding="12dp"
         android:ems="10"
         android:fontFamily="serif"
         android:inputType="text"
+        android:textAlignment="textStart"
+        android:textColor="@color/material_dynamic_neutral_variant20"
         android:textColorLink="#3F51B5"
         app:layout_constraintBottom_toTopOf="@+id/btnDibujar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,13 +58,15 @@
         android:id="@+id/btnDibujar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="104dp"
+        android:layout_marginEnd="88dp"
         android:background="@drawable/btn"
         android:fontFamily="serif"
         android:text="Dibujar"
         android:textColorLink="#3F51B5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnValidar"
         app:layout_constraintTop_toBottomOf="@+id/txtIngreso" />
 
     <Button
@@ -73,6 +79,7 @@
         android:fontFamily="serif"
         android:text="Evaluar"
         android:textColorLink="#3F51B5"
+        app:layout_constraintEnd_toStartOf="@+id/btnDibujar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtIngreso" />
 
