@@ -48,9 +48,11 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 String Cadena = txtIngreso.getText().toString();
+                ABE = new ArbolBinario(Cadena);
                 // Verificar si la entrada contiene caracteres no permitidos
                 boolean entradaValida = true;
-                for (char c : Cadena.toCharArray()) {
+                for (char c : Cadena.toCharArray())
+                {
                     if (!Character.isDigit(c) && !esOperadorMatematico(c) && !esParentesis(c))
                     {
                         entradaValida = false;
@@ -78,7 +80,6 @@ public class MainActivity extends AppCompatActivity
                         }
                         else
                         {
-                            ABE = new ArbolBinario(Cadena);
                             lblResultado.setText("" + ABE.EvaluaExpresion());
                         }
                     }
@@ -87,7 +88,6 @@ public class MainActivity extends AppCompatActivity
                 {
                     lblResultado.setText("Expresion Invalida");
                 }
-
                 //Llenado de los TextBox en el xml con los ordenes del arbol
                 txtPreOrden.setText(String.format("PREORDEN: %s", ABE.toString(0)));
                 txtInOrden.setText(String.format("INORDEN: %s", ABE.toString(1)));
