@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 
@@ -32,13 +33,19 @@ public class Arbol extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arbol);
+        ConstraintLayout constraintLayout = findViewById(R.id.main_degr);
+        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2500);
+        animationDrawable.setExitFadeDuration(5000);
+        animationDrawable.start();
+
         //Se validan los datos otorgados por el activity padre los cuales se valida si son null o si traen datos
         Bundle parametros = this.getIntent().getExtras();
         if (parametros!=null)
         {
             datos = parametros.getString("cadena");
         }
-        ConstraintLayout layout1 = findViewById(R.id.main);
+        ConstraintLayout layout1 = findViewById(R.id.main_degr);
         Lienzo1 fondo = new Lienzo1(this); //Se gener a un objeto de tipo lienzo
         layout1.addView(fondo);
     }
