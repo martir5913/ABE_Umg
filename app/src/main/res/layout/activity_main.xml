@@ -35,14 +35,15 @@
 
     <EditText
         android:id="@+id/txtIngreso"
-        android:layout_width="229dp"
-        android:layout_height="56dp"
+        android:layout_width="297dp"
+        android:layout_height="60dp"
         android:layout_marginTop="336dp"
         android:layout_marginBottom="12dp"
         android:drawableStart="@drawable/baseline_edit"
         android:drawablePadding="12dp"
         android:ems="10"
         android:fontFamily="@font/poetsen_regular"
+        android:imeOptions="actionDone"
         android:inputType="text"
         android:textAlignment="textStart"
         android:textColor="@color/material_dynamic_neutral_variant20"
@@ -149,10 +150,12 @@
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/poetsen_regular"
         android:text="Árbol de Expresión"
-        android:textSize="24sp"
+        android:textSize="26sp"
         app:layout_constraintBottom_toTopOf="@+id/txtIngreso"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
